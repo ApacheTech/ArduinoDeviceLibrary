@@ -155,7 +155,7 @@ namespace ArduinoDeviceLibrary.Adapters
         #region Private Properties
 
         /// <summary>
-        /// Gets the SerialPort connection to the Arduino device.
+        ///     Gets the SerialPort connection to the Arduino device.
         /// </summary>
         /// <value>The SerialPort connection to the Arduino device.</value>
         private SerialPort Connection
