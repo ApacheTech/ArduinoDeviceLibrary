@@ -1,6 +1,7 @@
 ﻿Arduino Device Library (ADLib)
+==============================
 
-Written by: Peter Matthews
+__Written By:__ Pete 'Apache' Matthews
 
 An adapter for Arduino (VID 2431) devices, including XBee USB Serial Ports from Digi International 
 (VID 40d0) and Future Technologies (VID 0403), as standard.
