@@ -19,6 +19,7 @@
 // -------------------------------------------------------------------------
 
 using System;
+using ArduinoDeviceLibrary.Properties;
 
 namespace ArduinoDeviceLibrary.IO
 {
@@ -37,6 +38,7 @@ namespace ArduinoDeviceLibrary.IO
         ///     Gets the data, sent from the Arduino device.
         /// </summary>
         /// <value>The data, sent from the Arduino device.</value>
+        [UsedImplicitly]
         public string Data { get; private set; }
     }
 }

@@ -24,6 +24,7 @@ using System.IO.Ports;
 using System.Threading.Tasks;
 using ArduinoDeviceLibrary.Exceptions;
 using ArduinoDeviceLibrary.IO;
+using ArduinoDeviceLibrary.Properties;
 
 namespace ArduinoDeviceLibrary.Interfaces
 {
@@ -36,49 +37,58 @@ namespace ArduinoDeviceLibrary.Interfaces
         ///     Gets the name of the Arduino device.
         /// </summary>
         /// <value>The name of the Arduino device.</value>
+        [UsedImplicitly]
         string DeviceName { get; }
 
         /// <summary>
         ///     Occurs when the Arduino device connection is opened.
         /// </summary>
+        [UsedImplicitly]
         event EventHandler Connected;
 
         /// <summary>
         ///     Occurs when data is received from the Arduino device.
         /// </summary>
+        [UsedImplicitly]
         event ArduinoDataReceivedEventHandler DataReceived;
 
         /// <summary>
         ///     Occurs when data is sent to the Arduino device.
         /// </summary>
+        [UsedImplicitly]
         event EventHandler DataSent;
 
         /// <summary>
         ///     Occurs when the Arduino device connection is closed.
         /// </summary>
+        [UsedImplicitly]
         event EventHandler Disconnected;
 
         /// <summary>
         ///     Occurs when an error message is received from the Arduino device.
         /// </summary>
+        [UsedImplicitly]
         event SerialErrorReceivedEventHandler ErrorReceived;
 
         /// <summary>
         ///     Opens the connection to the Arduino device.
         /// </summary>
         /// <exception cref="ArduinoException">Error occurred while attempting to open the connection to the Arduino device. See inner exception for details.</exception>
+        [UsedImplicitly]
         void Connect();
 
         /// <summary>
         ///     Closes the connection to the Arduino device.
         /// </summary>
         /// <exception cref="ArduinoException">Error occurred while attempting to close the connection to the Arduino device. See inner exception for details.</exception>
+        [UsedImplicitly]
         void Disconnect();
 
         /// <summary>
         ///     Automatically discovers the arduino device, by searching through the WMI records for up to date information.
         /// </summary>
         /// <exception cref="ArduinoException">Multiple Arduino devices found, or corrupted drivers are causing a false positive.</exception>
+        [UsedImplicitly]
         void DiscoverArduinoDevice();
 
         /// <summary>
@@ -86,12 +96,14 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// </summary>
         /// <returns>A task that represents the asynchronous read operation. The value of the TResult parameter contains the next line from the stream, or is null if all the characters have been read.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to read data.</exception>
+        [UsedImplicitly]
         Task<string> ReadLineAsync();
 
         /// <summary>
         ///     Reads all characters from the current position to the end of the stream asynchronously and returns them as one string.
         /// </summary>
         /// <returns>A task that represents the asynchronous read operation. The value of the TResult parameter contains a string with the characters from the current position to the end of the stream.</returns>
+        [UsedImplicitly]
         Task<string> ReadToEndAsync();
 
         /// <summary>
@@ -100,6 +112,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="value">The character to write to the stream. If value is null, nothing is written.</param>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteAsync(char value);
 
         /// <summary>
@@ -108,6 +121,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="buffer">The character array to write data from.</param>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteAsync(char[] buffer);
 
         /// <summary>
@@ -118,6 +132,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="count">The maximum number of characters to write.</param>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteAsync(char[] buffer, int index, int count);
 
         /// <summary>
@@ -126,6 +141,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="value">The string to write to the stream. If value is null, nothing is written.</param>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteAsync(string value);
 
         /// <summary>
@@ -134,6 +150,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="value">The character to write to the stream.</param>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteLineAsync(char value);
 
         /// <summary>
@@ -142,6 +159,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="buffer">The character array to write data from.</param>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteLineAsync(char[] buffer);
 
         /// <summary>
@@ -152,6 +170,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="count">The maximum number of characters to read. If the end of the stream is reached before the specified number of characters is written into the buffer, the current method returns.</param>
         /// <returns>A task that represents the asynchronous read operation. The value of the TResult parameter contains the total number of bytes read into the buffer. The result value can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteLineAsync(char[] buffer, int index, int count);
 
         /// <summary>
@@ -160,6 +179,7 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// <param name="value">The string to write. If the value is null, only a line terminator is written.</param>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteLineAsync(string value);
 
         /// <summary>
@@ -167,16 +187,19 @@ namespace ArduinoDeviceLibrary.Interfaces
         /// </summary>
         /// <returns>A task that represents the asynchronous write operation.</returns>
         /// <exception cref="ArduinoException">Arduino port not open when attempting to write data.</exception>
+        [UsedImplicitly]
         Task WriteLineAsync();
 
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
+        [UsedImplicitly]
         new void Dispose();
 
         /// <summary>
         ///     Occurs when a property value changes.
         /// </summary>
+        [UsedImplicitly]
         new event PropertyChangedEventHandler PropertyChanged;
     }
 }
